@@ -39,3 +39,10 @@ button {
 .qbtn {
     display: block;
 }
+
+.timer {
+    display: block;
+    float: right;
+    margin-right: 48px;
+    font-size: 18px;
+}

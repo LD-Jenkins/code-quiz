@@ -1,6 +1,13 @@
 var beginButton = document.querySelector("button");
 var qDiv = document.getElementById("questions");
 var divWrapper = document.getElementById("wrapper");
+var timeDisplay = document.getElementById("time");
+
+var iter = 0;
+var score = 0;
+var time = 59;
+
+var beginWasClicked = false;
 
 
 var question1 = {
@@ -9,7 +16,7 @@ var question1 = {
     two: "wrong",
     three: "wrong",
     four: "sin",
-    correct: 1
+    correct: "opt1"
 }
 
 var question2 = {
@@ -18,13 +25,49 @@ var question2 = {
     two: "2",
     three: "correct",
     four: "2",
-    correct: 3
+    correct: "opt3"
 }
 
-var qArray = [question1];
+var qArray = [question1, question2];
 
-function checkCorrect() {
+var timer = setInterval(updateTime, 1000);
 
+function endGameNoSpoilers() {
+    
+}
+
+function updateTime() {
+
+    if (!beginWasClicked) {
+        return;
+    }
+    if (time <= 0) {
+        clearInterval(timer);
+        endGameNoSpoilers();
+    }
+    timeDisplay.textContent = time;
+    time--;
+}
+
+function checkCorrect(event) {
+
+    var selection = event.target.id;
+    
+    if (selection == qArray[iter].correct) {
+        score++;
+    } else {
+        time -= 5;
+    }
+    
+    if (iter == qArray.length) {
+        clearInterval(timer);
+        endGameNoSpoilers();  
+    } else {
+        displayQuestion();
+    }
+    
+
+    iter++;
 }
 
 function clearDiv() {
@@ -36,31 +79,30 @@ function clearDiv() {
 
 function displayQuestion() {
 
+    beginWasClicked = true;
     clearDiv();
 
-    for (var i = 0; i < qArray.length; i++) {
+    var currQ = qArray[iter];
 
-        var currQ = qArray[i];
+    divWrapper.innerHTML = qDiv.innerHTML;
 
-        divWrapper.innerHTML = qDiv.innerHTML;
+    var question = document.getElementById("question");
+    var opt1 = document.getElementById("opt1");
+    var opt2 = document.getElementById("opt2");
+    var opt3 = document.getElementById("opt3");
+    var opt4 = document.getElementById("opt4");
 
-        var question = document.getElementById("question");
-        var opt1 = document.getElementById("opt1");
-        var opt2 = document.getElementById("opt2");
-        var opt3 = document.getElementById("opt3");
-        var opt4 = document.getElementById("opt4");
+    question.textContent = currQ.q;
+    opt1.textContent = currQ.one;
+    opt2.textContent = currQ.two;
+    opt3.textContent = currQ.three;
+    opt4.textContent = currQ.four;
 
-        question.textContent = currQ.q;
-        opt1.textContent = currQ.one;
-        opt2.textContent = currQ.two;
-        opt3.textContent = currQ.three;
-        opt4.textContent = currQ.four;
-
-        opt1.addEventListener("click", checkCorrect, {once: true});
-        opt2.addEventListener("click", checkCorrect, {once: true});
-        opt3.addEventListener("click", checkCorrect, {once: true});
-        opt4.addEventListener("click", checkCorrect, {once: true});
-    }
+    opt1.addEventListener("click", checkCorrect, {once: true});
+    opt2.addEventListener("click", checkCorrect, {once: true});
+    opt3.addEventListener("click", checkCorrect, {once: true});
+    opt4.addEventListener("click", checkCorrect, {once: true});
+    
 }
 
 beginButton.addEventListener("click", displayQuestion, {once: true});

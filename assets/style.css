@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    display: block;
+    text-align: center;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: rgb(11, 8, 175);
+    border-radius: 25px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 16px;
+    line-height: 12px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.qbtn {
+    display: block;
+}

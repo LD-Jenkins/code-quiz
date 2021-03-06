@@ -1,18 +1,45 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-
-  <title>The HTML5 Herald</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-
-  <link rel="stylesheet" href="./">
-
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
+  <div class="wrapper" id="wrapper">
+    <header>
+      <h1>CODE QUIZ</h1>
+    </header>
+    <p class="description">Put your web development knowledge to the test by answering questions regarding HTML, CSS and
+      basic Javascript. Once you click BEGIN a timer will start counting down from one minute.
+      Each question you answer incorrectly will subtract five seconds from the timer. Once the timer reaches zero the
+      quiz is over and your score will be displayed. You may save your score with your initials.
+    </p>
+    <div class="button-wrapper">
+      <button>BEGIN</button>
+    </div>
+  </div>
+  <script id="questions" type="text/html">
+    <div class="question-wrapper">
+      <header>
+        <h1 id="question"></h1>
+      </header>
+      <div class="options">
+        <button class="qbtn" id="opt1"></button>
+        <button class="qbtn" id="opt2"></button>
+        <button class="qbtn" id="opt3"></button>
+        <button class="qbtn" id="opt4"></button>
+      </div>
+    </div>
+  </script>
+  <script src="./assets/script.js"></script>
 </body>
+
+
+
 </html>

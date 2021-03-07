@@ -3,32 +3,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <title>Code Quiz</title>
-  <link rel="stylesheet" href="./assets/style.css">
+    <meta charset="utf-8">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-  <div class="timer">
-    <p id="time">1:00</p>
-  </div>
-  <div class="wrapper" id="wrapper">
-    <header>
-      <h1>CODE QUIZ</h1>
-    </header>
-    <p class="description">Put your web development knowledge to the test by answering questions regarding HTML, CSS and
-      basic Javascript. Once you click BEGIN the timer in the top right will start counting down from one minute.
-      Each question you answer incorrectly will subtract five seconds from the timer. Once the timer reaches zero the
-      quiz is over and your score will be displayed. You may save your score with your initials.
-    </p>
-    <div class="button-wrapper">
-      <button>BEGIN</button>
+    <div class="timer">
+        <p id="time">1:00</p>
     </div>
-  </div>
-  <script id="questions" type="text/html">
-    <div class="question-wrapper">
+    <div id="main-wrapper">
+        <div class="wrapper" id="wrapper">
+            <header>
+                <h1>CODE QUIZ</h1>
+            </header>
+            <p class="description">
+                Put your web development knowledge to the test by answering questions regarding HTML, CSS and
+                basic Javascript. Once you click BEGIN the timer in the top right will start counting down from one
+                minute.
+                Each question you answer incorrectly will subtract five seconds from the timer. Once the timer reaches
+                zero the
+                quiz is over and your score will be displayed. You may save your score with your initials.
+            </p>
+            <div class="button-wrapper">
+                <button id="begin-button">BEGIN</button>
+            </div>
+        </div>
+    </div>
+    <script id="questions" type="text/html">
+    <div class="wrapper">
       <header>
         <h1 id="question"></h1>
       </header>
@@ -40,7 +45,37 @@
       </div>
     </div>
   </script>
-  <script src="./assets/script.js"></script>
+    <script id="results" type="text/html">
+    <div class="wrapper">
+      <header>
+        <h1 id="results-header">RESULTS</h1>
+      </header>
+      <p class="description">
+        The quiz has ended! If you would like to save your score please enter your initials below and click submit. Thanks for playing!
+      </p>
+      <div id="results-submit">
+        <form>
+          <label for="initials">Enter Initials:</label>
+          <input type="text" id="initials" name="initials">
+        </form>
+        <div id="score">
+          <p>
+            SCORE: <span id="score-display"></span>
+          </p>
+        </div>
+        <button id="submit-button">SUBMIT</button>
+      </div>
+      <aside>
+        <p>
+          ATTEMPTS
+        </p>
+        <ul id="attempt-list"></ul>
+      </aside>
+    </div>
+    
+    
+  </script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>

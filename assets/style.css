@@ -7,10 +7,13 @@ body {
     background-color: #f9fbfd;
 }
 
+/* #main-wrapper {
+    display: flex;
+} */
+
 .wrapper {
     margin: 0 auto;
-    max-width: 800px;
-    padding: 30px 40px;
+    padding: 30px 20%;
 }
 
 .wrapper h1 {
@@ -45,4 +48,23 @@ button {
     float: right;
     margin-right: 48px;
     font-size: 18px;
+}
+
+/* #results-submit {
+    float: left;
+} */
+
+aside {
+    position: absolute;
+    right: 5vw;
+    top: 45px;
+    /* margin-top: 48px;
+    margin-left: 48px;
+    margin-right: -25%; */
+}
+
+@media screen and (min-width: 1500px) {
+    aside {
+        right: 10vw;
+    }
 }
